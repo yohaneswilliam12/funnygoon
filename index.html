@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goonstreak</title>
+    <style>
+        body {
+            background-color: white;
+            /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+            animation: background-change 0.5s ease 2s 1 forwards;
+            display: flex;
+            flex-direction: column;
+            justify-self: center;
+            align-items: center;
+            font-family: 'Courier New', Courier, monospace;
+            padding-top: 30%;
+        }
+
+        @keyframes background-change {
+            0% {
+                background-color: white;
+            }
+
+            100% {
+                background-color: orange;
+            }
+        }
+
+        @keyframes animation {
+            0% {
+                max-height: 0px;
+            }
+
+            100% {
+                max-height: 150px;
+            }
+        }
+
+        @keyframes animation-show {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .animation {
+            max-height: 0px;
+            width: 200px;
+            height: 150px;
+            animation: animation 0.5s ease 2s 1 forwards;
+            overflow: hidden;
+        }
+
+        .animation>img {
+            opacity: 0;
+            animation: animation-show 0.5s ease 2.5s 1 forwards;
+        }
+
+        .score {
+            font-size: 8em;
+            color: white;
+            -webkit-text-stroke: 5px orange;
+            font-weight: 900;
+        }
+
+        @keyframes score-description {
+            0% {
+                color: orange;
+            }
+
+            100% {
+                color: white;
+            }
+        }
+
+        .score-description {
+            font-size: 2em;
+            color: orange;
+            font-weight: 900;
+            animation: score-description 0.5s ease 2s 1 forwards;
+        }
+
+        @keyframes action {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .action {
+            position: absolute;
+            bottom: 30px;
+            opacity: 0;
+            animation: action 0.5s ease 4.5s 1 forwards;
+            gap: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .button {
+            border-radius: 10px;
+            padding: 10px 50px;
+            text-align: center;
+            font-weight: 900;
+            color: white;
+        }
+
+        .primary {
+            background-color: white;
+            color: orange;
+            filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.2));
+        }
+    </style>
+</head>
+
+<body>
+    <div class="animation">
+        <img src="https://i.gifer.com/kkK.gif" alt="" srcset="" width="200px">
+    </div>
+    <div class="score">
+        2
+    </div>
+    <div class="score-description">day streak!</div>
+
+    <div class="action">
+        <div class="button primary">SHARE MILESTONE</div>
+        <div class="button secondary">CONTINUE</div>
+    </div>
+</body>
+
+</html>
