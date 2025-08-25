@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goonstreak</title>
+    <style>
+        html {
+            animation: background-change 0.5s ease 2s 1 forwards;
+            font-family: "Arial Rounded MT Bold";
+        }
+        body {
+            background-color: white;
+            animation: background-change 0.5s ease 2s 1 forwards;
+            display: flex;
+            flex-direction: column;
+            justify-self: center;
+            align-items: center;
+            padding-top: 30%;
+        }
+        
+
+        @keyframes background-change {
+            0% {
+                background-color: white;
+            }
+
+            100% {
+                background-color: orange;
+            }
+        }
+
+
+        .animation {
+            width: 200px;
+            height: 150px;
+            overflow: hidden;
+        }
+
+        .score {
+            font-size: 8em;
+            color: white;
+            -webkit-text-stroke: 5px orange;
+            font-weight: 900;
+        }
+
+        @keyframes score-description {
+            0% {
+                color: orange;
+            }
+
+            100% {
+                color: white;
+            }
+        }
+
+        .score-spinner {
+            height: 120px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            margin: 20px 0;
+        }
+
+        @keyframes scroll-up {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-120px);
+            }
+        }
+
+        .score {
+            animation: scroll-up 0.5s ease 2s 1 forwards;
+            line-height: 120px;
+        }
+
+        .score-description {
+            font-size: 2em;
+            color: orange;
+            font-weight: 900;
+            animation: score-description 0.5s ease 2s 1 forwards;
+        }
+
+        @keyframes action {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .action {
+            position: absolute;
+            bottom: 30px;
+            opacity: 0;
+            animation: action 0.5s ease 4.5s 1 forwards;
+            gap: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .button {
+            border-radius: 10px;
+            padding: 10px 50px;
+            text-align: center;
+            font-weight: 900;
+            color: white;
+        }
+
+        .primary {
+            background-color: white;
+            color: orange;
+            filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.2));
+        }
+
+        .pixelate {
+            width: 30em;
+            image-rendering: pixelated;
+            transform: scale(50);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="animation">
+        <img src="https://i.imgur.com/XjU96p4.gif" alt="" srcset="" width="200px">
+    </div>
+    <div class="score-spinner">
+        <div class="score old">2</div>
+        <div class="score new">3</div>
+    </div>
+    <div class="score-description">day streak!</div>
+
+    <div class="action">
+        <div class="button primary">SHARE MILESTONE</div>
+        <div class="button secondary">CONTINUE</div>
+    </div>
+</body>
+
+</html>
