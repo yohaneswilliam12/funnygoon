@@ -10,6 +10,7 @@
             animation: background-change 0.5s ease 2s 1 forwards;
             font-family: "Arial Rounded MT Bold";
         }
+
         body {
             background-color: white;
             animation: background-change 0.5s ease 2s 1 forwards;
@@ -19,7 +20,7 @@
             align-items: center;
             padding-top: 30%;
         }
-        
+
 
         @keyframes background-change {
             0% {
@@ -68,6 +69,7 @@
             0% {
                 transform: translateY(0);
             }
+
             100% {
                 transform: translateY(-120px);
             }
@@ -138,9 +140,29 @@
     <div class="score-description">day streak!</div>
 
     <div class="action">
-        <div class="button primary">SHARE MILESTONE</div>
+        <div class="button primary" onclick="share()">SHARE MILESTONE</div>
         <div class="button secondary">CONTINUE</div>
     </div>
 </body>
+<script>
+    async function share() {
+        try {
+            const response = await fetch("./image.png");
+            const blob = await response.blob();
+            const file = new File([blob], "image.png", { type: blob.type });
+
+            if (navigator.canShare && navigator.canShare({ files: [file] })) {
+                await navigator.share({
+                    title: "Share your streak",
+                    files: [file]
+                });
+            } else {
+                alert("Not supported.");
+            }
+        } catch (err) {
+            console.error("Error:", err);
+        }
+    }
+</script>
 
 </html>
