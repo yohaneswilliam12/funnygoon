@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goonstreak</title>
+    <style>
+        html {
+            animation: background-change 0.5s ease 1s 1 forwards;
+            font-family: "Arial Rounded MT Bold";
+        }
+
+        body {
+            background-color: white;
+            animation: background-change 0.5s ease 1s 1 forwards;
+            display: flex;
+            flex-direction: column;
+            justify-self: center;
+            align-items: center;
+            padding-top: 10%;
+            width: 80%;
+        }
+
+
+        @keyframes background-change {
+            0% {
+                background-color: white;
+            }
+
+            100% {
+                background-color: orange;
+            }
+        }
+
+        .header {
+            display: flex;
+            flex-direction: column;
+            justify-self: center;
+            align-items: center;
+            animation: header-scroll-up 0.5s ease 2s 1 forwards;
+        }
+
+        @keyframes header-scroll-up {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-10px);
+            }
+        }
+
+
+        .animation {
+            width: 200px;
+            height: 150px;
+            overflow: hidden;
+        }
+
+        @keyframes animation-show {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .animation>img {
+            opacity: 0;
+            animation: animation-show 0.5s ease 1.5s 1 forwards;
+        }
+
+        .score {
+            font-size: 8em;
+            color: white;
+            -webkit-text-stroke: 5px orange;
+            font-weight: 900;
+        }
+
+        @keyframes score-description {
+            0% {
+                color: orange;
+            }
+
+            100% {
+                color: white;
+            }
+        }
+
+        .score-spinner {
+            height: 120px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            margin: 20px 0;
+        }
+
+        @keyframes scroll-up {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-120px);
+            }
+        }
+
+        @keyframes scroll-down {
+            0% {
+                transform: translateY(-120px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce-down {
+            0% {
+                transform: translateY(-120px);
+            }
+
+            40% {
+                transform: translateY(0);
+            }
+
+            55% {
+                transform: translateY(-24px);
+            }
+
+            70% {
+                transform: translateY(0);
+            }
+
+            80% {
+                transform: translateY(-5px);
+            }
+
+            90% {
+                transform: translateY(0);
+            }
+
+            95% {
+                transform: translateY(-1px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .score {
+            transform: translateY(-120px);
+            animation: bounce-down 0.5s ease-out 1s 1 forwards;
+            line-height: 120px;
+        }
+
+        .score-description {
+            font-size: 2em;
+            color: orange;
+            font-weight: 900;
+            animation: score-description 0.5s ease 1s 1 forwards;
+        }
+
+        @keyframes action {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .action {
+            position: absolute;
+            bottom: 30px;
+            opacity: 0;
+            animation: action 0.5s ease 4.5s 1 forwards;
+            gap: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .button {
+            border-radius: 10px;
+            padding: 10px 50px;
+            text-align: center;
+            font-weight: 900;
+            color: white;
+        }
+
+        .primary {
+            background-color: white;
+            color: orange;
+            filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.2));
+        }
+
+        .pixelate {
+            width: 30em;
+            image-rendering: pixelated;
+            transform: scale(50);
+        }
+
+        .progress-bar {
+            opacity: 0;
+            border: 1px solid yellow;
+            width: 90%;
+            padding: 20px;
+            border-radius: 10px;
+            gap: 20px;
+            display: flex;
+            flex-direction: column;
+            margin: 20px 0;
+            animation: action 0.5s ease 2.2s 1 forwards;
+        }
+        .day-name {
+            display: flex;
+            justify-content: space-between;
+            color: white;
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            background-color: lightgray;
+            border-radius: 10px;
+            height: 20px;
+            position: relative;
+        }
+
+        .progress-bar-item {
+            background-color: yellow;
+            height: 100%;
+            width: 41%;
+            border-radius: 10px;
+            animation: progress-bar-extend 0.8s ease-in-out 2.5s 1 forwards;
+        }
+        @keyframes progress-bar-extend {
+            0% {
+                width: 41%;
+            }
+            100% {
+                width: 57%;
+            }
+        }
+        .progress-freeze {
+            position: absolute;
+            left: 30%;
+            top: -5px;
+            width: 30px;
+            height: 150%;
+            background-color: rgb(0, 183, 255);
+            border-radius: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="animation">
+            <img class="pixelate" src="https://i.imgur.com/XjU96p4.gif" alt="" srcset="" width="200px">
+        </div>
+        <div class="score-spinner">
+            <div class="score old">4</div>
+            <div class="score new">3</div>
+        </div>
+        <div class="score-description">day streak!</div>
+    </div>
+    <div class="progress-bar">
+        <div class="day-name">
+            <div>Su</div>
+            <div>Mo</div>
+            <div>Tu</div>
+            <div>We</div>
+            <div>Th</div>
+            <div>Fr</div>
+            <div>Sa</div>
+        </div>
+        <div class="progress-bar-container">
+            <div class="progress-bar-item"></div>
+            <!-- <div class="progress-freeze"></div> -->
+        </div>
+    </div>
+    <div class="action">
+        <div class="button primary" onclick="share()">SHARE MILESTONE</div>
+        <div class="button secondary">CONTINUE</div>
+    </div>
+</body>
+<script>
+    async function share() {
+        try {
+            const response = await fetch("./goonstreak3.png");
+            const blob = await response.blob();
+            const file = new File([blob], "goonstreak3.png", { type: blob.type });
+
+            if (navigator.canShare && navigator.canShare({ files: [file] })) {
+                await navigator.share({
+                    files: [file]
+                });
+            } else {
+                alert("Not supported.");
+            }
+        } catch (err) {
+            console.error("Error:", err);
+        }
+    }
+</script>
+
+</html>
