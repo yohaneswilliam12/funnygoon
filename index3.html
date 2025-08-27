@@ -180,10 +180,15 @@
                 opacity: 1;
             }
         }
-
-        .action {
+        .bottom-part {
             position: absolute;
             bottom: 30px;
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .action {
             opacity: 0;
             animation: action 0.5s ease 4.5s 1 forwards;
             gap: 10px;
@@ -214,7 +219,6 @@
         .progress-bar {
             opacity: 0;
             border: 1px solid yellow;
-            width: 90%;
             padding: 20px;
             border-radius: 10px;
             gap: 20px;
@@ -223,6 +227,7 @@
             margin: 20px 0;
             animation: action 0.5s ease 2.2s 1 forwards;
         }
+
         .day-name {
             display: flex;
             justify-content: space-between;
@@ -244,14 +249,17 @@
             border-radius: 10px;
             animation: progress-bar-extend 0.8s ease-in-out 2.5s 1 forwards;
         }
+
         @keyframes progress-bar-extend {
             0% {
                 width: 41%;
             }
+
             100% {
                 width: 57%;
             }
         }
+
         .progress-freeze {
             position: absolute;
             left: 30%;
@@ -275,24 +283,26 @@
         </div>
         <div class="score-description">day streak!</div>
     </div>
-    <div class="progress-bar">
-        <div class="day-name">
-            <div>Su</div>
-            <div>Mo</div>
-            <div>Tu</div>
-            <div>We</div>
-            <div>Th</div>
-            <div>Fr</div>
-            <div>Sa</div>
+    <div class="bottom-part">
+        <div class="progress-bar">
+            <div class="day-name">
+                <div>Su</div>
+                <div>Mo</div>
+                <div>Tu</div>
+                <div>We</div>
+                <div>Th</div>
+                <div>Fr</div>
+                <div>Sa</div>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-bar-item"></div>
+                <!-- <div class="progress-freeze"></div> -->
+            </div>
         </div>
-        <div class="progress-bar-container">
-            <div class="progress-bar-item"></div>
-            <!-- <div class="progress-freeze"></div> -->
+        <div class="action">
+            <div class="button primary" onclick="share()">SHARE MILESTONE</div>
+            <div class="button secondary">CONTINUE</div>
         </div>
-    </div>
-    <div class="action">
-        <div class="button primary" onclick="share()">SHARE MILESTONE</div>
-        <div class="button secondary">CONTINUE</div>
     </div>
 </body>
 <script>
