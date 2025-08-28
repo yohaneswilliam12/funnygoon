@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goonstreak</title>
+    <style>
+        html {
+            animation: background-change 0.5s ease 1.3s 1 forwards;
+            font-family: "Arial Rounded MT Bold";
+            justify-self: center;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        body {
+            background-color: white;
+            animation: background-change 0.5s ease 1.3s 1 forwards;
+            display: flex;
+            flex-direction: column;
+            justify-self: center;
+            align-items: center;
+            padding-top: 10%;
+            width: 100%;
+        }
+
+        @keyframes background-change {
+            0% {
+                background-color: white;
+            }
+
+            100% {
+                background-color: orange;
+            }
+        }
+
+        .header {
+            display: flex;
+            flex-direction: column;
+            justify-self: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            animation: header-scroll-up 0.5s ease 2s 1 forwards;
+            overflow: hidden;
+        }
+
+        @keyframes header-scroll-up {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-10px);
+            }
+        }
+
+
+        .animation {
+            transform: scale(2) translateY(85px);
+            width: 200px;
+            height: 150px;
+            overflow: hidden;
+            z-index: 1;
+            animation: animation-scale 0.5s ease 0.5s 1 forwards;
+        }
+
+        @keyframes animation-show {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes animation-scale {
+            0% {
+                transform: scale(2) translateY(85px);
+            }
+
+            100% {
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .animation>img {
+            overflow: visible;
+        }
+
+        .score {
+            font-size: 8em;
+            color: white;
+            -webkit-text-stroke: 5px orange;
+            font-weight: 900;
+        }
+
+        @keyframes score-description {
+            0% {
+                color: orange;
+            }
+
+            100% {
+                color: white;
+            }
+        }
+
+        .score-spinner {
+            height: 120px;
+            padding: 0 20px;
+            overflow-y: hidden;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            margin: 20px 0;
+            opacity: 0;
+            animation: animation-show 0.5s ease 0.8s 1 forwards;
+        }
+
+        @keyframes scroll-up {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-120px);
+            }
+        }
+
+        @keyframes scroll-down {
+            0% {
+                transform: translateY(-120px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce-down {
+            0% {
+                transform: translateY(-120px);
+            }
+
+            40% {
+                transform: translateY(0);
+            }
+
+            55% {
+                transform: translateY(-24px);
+            }
+
+            70% {
+                transform: translateY(0);
+            }
+
+            80% {
+                transform: translateY(-5px);
+            }
+
+            90% {
+                transform: translateY(0);
+            }
+
+            95% {
+                transform: translateY(-1px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .score {
+            transform: translateY(-120px);
+            animation: bounce-down 0.5s ease-out 1.3s 1 forwards;
+            line-height: 120px;
+        }
+
+        .score-description {
+            font-size: 2em;
+            color: orange;
+            font-weight: 900;
+            opacity: 0;
+            animation: animation-show 0.5s ease 0.8s 1 forwards, score-description 0.5s ease 1.3s 1 forwards;
+        }
+
+        @keyframes action {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .bottom-part {
+            position: absolute;
+            bottom: 30px;
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .action {
+            opacity: 0;
+            animation: action 0.5s ease 4.5s 1 forwards;
+            gap: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .button {
+            border-radius: 10px;
+            padding: 10px 50px;
+            text-align: center;
+            font-weight: 900;
+            color: white;
+        }
+
+        .primary {
+            background-color: white;
+            color: orange;
+            filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.2));
+        }
+
+        .pixelate {
+            width: 30em;
+            image-rendering: pixelated;
+            transform: scale(50);
+        }
+
+        .progress-bar {
+            opacity: 0;
+            border: 1px solid yellow;
+            padding: 20px;
+            border-radius: 10px;
+            gap: 20px;
+            display: flex;
+            flex-direction: column;
+            margin: 20px 0;
+            animation: action 0.5s ease 2.2s 1 forwards;
+        }
+
+        .day-name {
+            display: flex;
+            justify-content: space-between;
+            color: white;
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            background-color: lightgray;
+            border-radius: 10px;
+            height: 20px;
+            position: relative;
+        }
+
+        .progress-bar-item {
+            background: linear-gradient(to right, rgb(255, 208, 0), yellow);
+            height: 100%;
+            width: 57%;
+            border-radius: 10px;
+            position: relative;
+            animation: progress-bar-extend 0.8s ease-in-out 2.5s 1 forwards;
+        }
+
+        @keyframes progress-bar-extend {
+            0% {
+                width: 57%;
+            }
+
+            100% {
+                width: 71%;
+            }
+        }
+
+        .progress-freeze {
+            position: absolute;
+            left: 30%;
+            top: -5px;
+            width: 30px;
+            height: 150%;
+            background-color: rgb(0, 183, 255);
+            border-radius: 20px;
+        }
+
+        .star {
+            position: absolute;
+            right: 0;
+            height: 100%;
+        }
+
+        .star-segment-top {
+            display: flex;
+            height: 50%;
+        }
+
+        .star-segment-top-left {
+            display: flex;
+            width: 150px;
+            height: 100%;
+        }
+
+        .star-segment-top-right {
+            display: flex;
+            width: 20px;
+            height: 100%;
+        }
+
+        .star-segment-bottom {
+            display: flex;
+            height: 50%;
+        }
+
+        .star-segment-bottom-left {
+            display: flex;
+            width: 150px;
+            height: 100%;
+        }
+
+        .star-segment-bottom-right {
+            display: flex;
+            width: 20px;
+            height: 100%;
+        }
+
+        svg {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="animation">
+            <img src="https://media3.giphy.com/media/v1.Y2lkPTZjMDliOTUyZDJ3c2Y4NHkyeTdxZzBhOGEyemljaWRpanV5NTRzMmdveW04Z3kzeiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/3rWu6LMRALa3ocRQ3s/giphy.gif"
+                alt="" srcset="" width="200px">
+        </div>
+        <div class="score-spinner">
+            <div class="score old">5</div>
+            <div class="score new">4</div>
+        </div>
+        <div class="score-description">day streak!</div>
+    </div>
+    <div class="bottom-part">
+        <div class="progress-bar">
+            <div class="day-name">
+                <div>Su</div>
+                <div>Mo</div>
+                <div>Tu</div>
+                <div>We</div>
+                <div>Th</div>
+                <div>Fr</div>
+                <div>Sa</div>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-bar-item">
+                    <div class="star">
+                    <div class="star-segment-top">
+                        <div class="star-segment-top-left">
+                            <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+                                <path d="M100,0 L100,100 L0,100 Q95,95 100,0 Z" fill="white" />
+                            </svg>
+                        </div>
+                        <div class="star-segment-top-right">
+                            <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+                                <path d="M0,0 L0,100 L100,100 Q20,80 0,0 Z" fill="white" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="star-segment-bottom">
+                        <div class="star-segment-bottom-left">
+                            <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+                                <path d="M0,0 L100,0 L100,100 Q95,5 0,0 Z" fill="white" />
+                            </svg>
+                        </div>
+                        <div class="star-segment-bottom-right">
+                            <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+                                <path d="M0,100 L0,0 L100,0 Q20,20 0,100 Z" fill="white" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="action">
+            <div class="button primary" onclick="share()">SHARE MILESTONE</div>
+            <div class="button secondary">CONTINUE</div>
+        </div>
+    </div>
+</body>
+<script>
+    async function share() {
+        try {
+            const response = await fetch("./goonstreak4.png");
+            const blob = await response.blob();
+            const file = new File([blob], "goonstreak4.png", { type: blob.type });
+
+            if (navigator.canShare && navigator.canShare({ files: [file] })) {
+                await navigator.share({
+                    files: [file]
+                });
+            } else {
+                alert("Not supported.");
+            }
+        } catch (err) {
+            console.error("Error:", err);
+        }
+    }
+</script>
+
+</html>
