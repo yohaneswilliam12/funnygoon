@@ -1,7 +1,14 @@
-#### The story behind this funny and a littlebit dirty jokes repository is that Trump's neck get censored because looks like something off, sexually. Then my friend said that he is busy gooning himself with trump's neck. Then I remind him to goon in the next day. Then i have an inspiration with duolingo, and its reminders, so I make the clone, such as push notification with the streak animation, and sharable day streak image in the 3rd day streak (index2.html).
+# Funnygoon
 
-#### Here is the list of words that created by fusion multiple entity into new terms:
+## Welcome to the Funnygoon repository. Please don’t be offended — this repository is for entertainment purposes only.
+
+![Warning](https://img.shields.io/badge/⚠️-Warning-orange)
+### Some pages contain inappropriate content that may not be suitable for all audiences.
+
+#### The story behind this funny and slightly dirty jokes repository is that Trump’s neck was censored because it looked sexually suggestive. Then my friend joked that he was busy gooning to Trump’s neck. I reminded him to goon the next day. That gave me the inspiration to combine it with Duolingo and its reminders. So I made a clone with features like push notifications, the streak animation, and a shareable day-streak image on the 3rd day streak (index2.html).
+
+#### Here is a list of words created by fusing multiple entities into new terms:
 - Duolingo + Donald Trump = Duonaldtrump
 - Duolingo + Goon = Duolingoon
 
-#### This html file is uploaded each day for each day streak
+#### This HTML file is uploaded every day for each day of the streak.
